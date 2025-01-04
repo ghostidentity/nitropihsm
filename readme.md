@@ -1,60 +1,107 @@
-# NitroPI HSM Integration with Raspberry Pi
-This guide allow you to take advantage of NitroKey HSM 2 advance features to protect sensitive data on Raspberry Pi device.
+# NitroKey HSM 2 Integration with Raspberry Pi
+This guide demonstrates how to leverage the advanced features of the NitroKey HSM 2 to protect sensitive data on a Raspberry Pi device.
 
-## Hardware Required:
-
+# Prerequisites
+## Hardware Requirements:
 - Nitrokey HSM 2
 - Raspberry Pi 3 Model B
+## Software Requirements:
+- A Raspberry Pi running Raspbian OS
+Internet connection for package installation
 
-## Initialize the HSM, skip if you already initialize it already.
-IMPORTANT!!
-the command: sc-hsm-tool --initialize will reset the device which will remove all existing keys, only do this if you recently procured the device. otherwise, you can skip it.
+## Step 1: Initialize the HSM (If Not Already Done)
+Important: Running the command sc-hsm-tool --initialize will reset the device and erase all existing keys. Only execute this if you have recently procured the device, or if you need to initialize it for the first time. If the device is already initialized, skip this step.
 
-- sc-hsm-tool --initialize --reader "0" --so-pin SO_PIN --pin USER_PIN
-- e.g.  sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
-- note the : 1234567890123456 is the SO pin DEFAULT, the 654321098765 is the newly generated user pin.
+## To initialize the device, run the following command:
 
-## Verification
-- pkcs15-tool --list-pin
-- pkcs15-tool --list-public-keys --reader 0 --pin 654321098765
-- pkcs15-tool --list-keys
-
-
-## Install libraries on Raspberry Pi 3 Model B
+sc-hsm-tool --initialize --reader "0" --so-pin SO_PIN --pin USER_PIN
+SO_PIN: The Security Officer PIN (default: 1234567890123456)
+USER_PIN: A newly generated User PIN (e.g., 654321098765)
+Example:
 
 ```
+sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
+```
+
+## Step 2: Verify Initialization
+After initialization, verify the device status using the following commands:
+
+```
+pkcs15-tool --list-pin
+pkcs15-tool --list-keys
+```
+## Step 3: Install Required Libraries on Raspberry Pi
+Install the necessary libraries on your Raspberry Pi 3 Model B:
+
+```
+sudo apt update
 sudo apt install -y opensc
 sudo apt-get install libengine-pkcs11-openssl
 ```
 
-## Generate KeyPairs
+## Step 4: Generate Key Pairs
+Generate an RSA key pair for use with the HSM:
+
 ```
 pkcs11-tool --module /usr/lib/arm-linux-gnueabihf/opensc-pkcs11.so -l --pin 654321098765 --keypairgen --key-type rsa:2048 --id 02
+```
+
+```
 pkcs15-tool --read-public-key "02" --reader 0 --pin 654321098765 --output public_key.pem
 ```
-- Note: the above code will generate rsa key pair, u need to use the ID and slot number on config.xml, u also need to move the public key to keys folder. It's important to  map the correct public key for each user
-- Afterward, run the executable:   (first run will require you to generate the password for each user, which can be generated at http://192.168.88.251:8080/hasher. Its ideal to set the raspberry PI to static.). Replace 192.168.88.251 with actual IP of your raspberry device.
+
+Note: The above code generates an RSA key pair. Ensure that the correct Key ID and Slot Number are used in config.xml. Also, move the generated public_key.pem file to the keys folder of your project directory. This file will be mapped to the respective user.
+Step 5: Run the NitroPI Application
+Once the key pair is generated and the configuration is set, run the NitroPI application. The first time you run it, you will need to generate a hashed password for each user. This can be done via the /hasher endpoint on the server.
+
+## Run the program
 ```
 chmod +x nitropi
-sudo ./nitropi
+sudo nohup ./nitropi &
 ```
--  Once running, use postman to generate the hash value of the pasword you want to use, u need to update the pasword on config.xml associated to the user.
--  Once the config.xml has been modified, restart the program ./nitropi 
--  You can now use the /encrypt and /decrypt endpoint.
--  You can run the program in background using : sudo nohup ./nitropi &
 
-## API Endpoints: 
+### Generate User Password Hash:
+To generate a password hash, visit the /hasher endpoint on your Raspberry Pi:
 
-- Encrypt: POST /encrypt (Content-Type: application/x-www-form-urlencoded, input: data)
-- Decrypt: POST /decrypt (Content-Type: application/x-www-form-urlencoded, input: data)
-- Hash: POST /hasher (Content-Type: application/x-www-form-urlencoded, input: data)
+Open your browser or Postman and navigate to: http://{raspberry_ip}/hasher
+Replace {raspberry_ip} with the actual IP address of your Raspberry Pi (e.g., http://192.168.88.251/hasher).
+Update the password in config.xml:
+Once you receive the hashed password, update the Password field for the corresponding user in config.xml.
 
-note you can check the screenshots folder.
+## API Endpoints Overview
 
-## Limitation
-- The code provided only supports RSA based encryption
+### Encrypt Data:
 
+```
+URL: http://{raspberry_ip}/encrypt
+Method: POST
+Content-Type: application/x-www-form-urlencoded
+Parameters: input=data
+```
+### Decrypt Data:
+```
+URL: http://{raspberry_ip}/decrypt
+Method: POST
+Content-Type: application/x-www-form-urlencoded
+Parameters: input=data
+```
+### Generate Hash:
+```
+URL: http://{raspberry_ip}/hasher
+Method: POST
+Content-Type: application/x-www-form-urlencoded
+Parameters: input=data
+```
+## External Integration
+You can use the public_key.pem generated on Step 4 within your own program to encrypt text data. The encrypted data should be base64-encoded before sending it to the /decrypt endpoint for decryption. Check the "external" folder.
 
-# Revision Logs
-- v1: working encryption
-- v2: added support for concurency and process optimization 
+## Notes:
+Replace {raspberry_ip} with the actual IP address of your Raspberry Pi.
+Ensure the Raspberry Pi has a static IP address for ease of access during integration.
+
+## Known Limitations
+The current implementation only supports RSA-based encryption.
+
+## Revision Logs
+- v1: Initial working encryption
+- v2: Added support for concurrency, process optimization, and port adjustment to :80 (01/04/2025)
