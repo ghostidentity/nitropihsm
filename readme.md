@@ -93,7 +93,10 @@ Content-Type: application/x-www-form-urlencoded
 Parameters: input=data
 ```
 ## External Integration
-You can use the public_key.pem generated on Step 4 within your own program to encrypt text data. The encrypted data should be base64-encoded before sending it to the /decrypt endpoint for decryption. Check the "external" folder/
+You can use the public_key.pem generated on Step 4 within your own program to encrypt text data. The encrypted data should be base64-encoded before sending it to the /decrypt endpoint for decryption. Check the "integration" folder/
+
+## Nitropi Utility tool
+The nitropi program, is a handy tool that you can bind to system environment variable on windows 11 OS, x64 bit. It can perform encryption and decryption.
 
 ## Notes:
 Replace {raspberrypi_ip} with the actual IP address of your Raspberry Pi.
