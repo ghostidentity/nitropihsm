@@ -6,7 +6,9 @@ This guide allow you to take advantage of NitroKey HSM 2 advance features to pro
 - Nitrokey HSM 2
 - Raspberry Pi 3 Model B
 
-## Initialize the HSM:
+## Initialize the HSM, skip if you already initialize it already.
+IMPORTANT!!
+the command: sc-hsm-tool --initialize will reset the device which will remove all existing keys, only do this if you recently procured the device. otherwise, you can skip it.
 
 - sc-hsm-tool --initialize --reader "0" --so-pin SO_PIN --pin USER_PIN
 - e.g.  sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
