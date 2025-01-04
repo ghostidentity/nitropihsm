@@ -51,10 +51,10 @@ pkcs15-tool --read-public-key "02" --reader 0 --pin 654321098765 --output public
 ```
 
 Note: The above code generates an RSA key pair. Ensure that the correct Key ID and Slot Number are used in config.xml. Also, move the generated public_key.pem file to the keys folder of your project directory. This file will be mapped to the respective user.
-Step 5: Run the NitroPI Application
-Once the key pair is generated and the configuration is set, run the NitroPI application. The first time you run it, you will need to generate a hashed password for each user. This can be done via the /hasher endpoint on the server.
 
-## Run the program
+## Step 5: Run the program
+Once the key pair is generated and the configuration is set, run the program. The first time you run it, you will need to generate a hashed password for each user. This can be done via the /hasher endpoint on the server.
+
 ```
 chmod +x nitropi
 sudo nohup ./nitropi &
@@ -63,8 +63,8 @@ sudo nohup ./nitropi &
 ### Generate User Password Hash:
 To generate a password hash, visit the /hasher endpoint on your Raspberry Pi:
 
-Open your browser or Postman and navigate to: http://{raspberry_ip}/hasher
-Replace {raspberry_ip} with the actual IP address of your Raspberry Pi (e.g., http://192.168.88.251/hasher).
+Open your browser or Postman and navigate to: http://{raspberrypi_ip}/hasher
+Replace {raspberrypi_ip} with the actual IP address of your Raspberry Pi (e.g., http://192.168.88.251/hasher).
 Update the password in config.xml:
 Once you receive the hashed password, update the Password field for the corresponding user in config.xml.
 
@@ -73,30 +73,30 @@ Once you receive the hashed password, update the Password field for the correspo
 ### Encrypt Data:
 
 ```
-URL: http://{raspberry_ip}/encrypt
+URL: http://{raspberrypi_ip}/encrypt
 Method: POST
 Content-Type: application/x-www-form-urlencoded
 Parameters: input=data
 ```
 ### Decrypt Data:
 ```
-URL: http://{raspberry_ip}/decrypt
+URL: http://{raspberrypi_ip}/decrypt
 Method: POST
 Content-Type: application/x-www-form-urlencoded
 Parameters: input=data
 ```
 ### Generate Hash:
 ```
-URL: http://{raspberry_ip}/hasher
+URL: http://{raspberrypi_ip}/hasher
 Method: POST
 Content-Type: application/x-www-form-urlencoded
 Parameters: input=data
 ```
 ## External Integration
-You can use the public_key.pem generated on Step 4 within your own program to encrypt text data. The encrypted data should be base64-encoded before sending it to the /decrypt endpoint for decryption. Check the "external" folder.
+You can use the public_key.pem generated on Step 4 within your own program to encrypt text data. The encrypted data should be base64-encoded before sending it to the /decrypt endpoint for decryption. Check the "external" folder/
 
 ## Notes:
-Replace {raspberry_ip} with the actual IP address of your Raspberry Pi.
+Replace {raspberrypi_ip} with the actual IP address of your Raspberry Pi.
 Ensure the Raspberry Pi has a static IP address for ease of access during integration.
 
 ## Known Limitations
