@@ -105,6 +105,10 @@ Ensure the Raspberry Pi has a static IP address for ease of access during integr
 ## Known Limitations
 The current implementation only supports RSA-based encryption.
 
+## Links
+- https://youtube.com/video/ZKxL2s0NZGc
+- https://youtube.com/video/swr0XojhdxU
+
 ## Revision Logs
 - v1: Initial working encryption
 - v2: Added support for concurrency, process optimization, and port adjustment to :80 (01/04/2025)
