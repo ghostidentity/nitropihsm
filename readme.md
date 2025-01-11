@@ -82,6 +82,13 @@ sudo nohup ./nitropi &
 - The current implementation only supports RSA-based encryption.
 - When you copy the output base64 from encryption and signature result, it retains the new line when you paste it, u can use notepad and unselect the wordwrap.
 
+## Ngrok Integration on Raspberry PI 3
+```
+sudo apt install ngrok
+ngrok authtoken <token>
+ngrok tcp 50051
+```
+
 ## Notes 
 - The server executable expects the client.xml file to be in the same folder. It also expects the public_keys to be present as defined in client.xml. Make sure to use the appropriate executable based on your OS and the correct OpenSC library.
 - Do not use public_key.pem for encryption. You must generate a new RSA key pair and download the public key from it.
