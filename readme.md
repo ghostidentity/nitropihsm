@@ -77,6 +77,7 @@ sudo nohup ./nitropi &
 - 1/11/2025 now supports Sign and Verify, it uses RSA private key to sign the file. Likewise, you can use Verify to verify the signature.
 - 1/11/2025 fix bug on client side and optimization
 - 1/12/2025 updated client to be compatible with ngrok, u need to use ngrok tcp, then paste in server:port  (exclude TCP)
+- 1/12/2025 updated server with option to enable ngrok. To enable, just update teh confix.xml
 
 ## Known Limitations
 - The current implementation only supports RSA-based encryption.
