@@ -1,7 +1,7 @@
                                     config.xml
 <Configuration>
     <LibraryPath>/usr/lib/arm-linux-gnueabihf/opensc-pkcs11.so</LibraryPath>
-    <EnableGrok>false</EnableGrok>
+    <EnableNgrok>false</EnableNgrok>
     <Token>N/A</Token>
     <Users>
         <User>
