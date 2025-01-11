@@ -94,6 +94,7 @@ Use the endpoint address without tcp:// on nitropi hsm tool to connect
 - Do not use public_key.pem for encryption. You must generate a new RSA key pair and download the public key from it.
 - DO NOT USE the initialize command unless you have recently purchased the device. This command will reset the device’s keys.
 - If you encrypt or sign any data, remember to securely store the ciphertext (in base64 format). 
+- When running the server on background and with ngrok option enabled, the server endpoint will not be visible, navigate to https://dashboard.ngrok.com/endpoints?sortBy=createdAt&orderBy=desc to obtain it.
 ```
 sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
 ```
