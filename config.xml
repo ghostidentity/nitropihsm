@@ -7,13 +7,13 @@
 	</Ngrok>
 	<Users>
 		<User>
-			<Username>zerocore</Username>
-			<Password>invalid_password</Password>
-			<Pin>654321098765</Pin>
+			<Username>[username]</Username>
+			<Password>[password]</Password>
+			<Pin>[pin]</Pin>
 			<Type>RSA</Type>
 			<Length>2048</Length>
-            <Public>keys/public_key.pem</Public>
-			<KeyID>01</KeyID>
+            <Public>keys/[publickeyfile]</Public>
+			<KeyID>[id]</KeyID>
 			<SlotNumber>0</SlotNumber>
 		</User>
 	</Users>
