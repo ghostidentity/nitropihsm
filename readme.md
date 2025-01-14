@@ -91,8 +91,8 @@ Use the endpoint address without tcp:// on nitropi hsm tool to connect
 - DO NOT USE the initialize command unless you have recently purchased the device. This command will reset the device’s keys.
 - If you encrypt or sign any data, remember to securely store the ciphertext (in base64 format). 
 - When running the server on background and with ngrok option enabled, the server endpoint will not be visible, navigate to https://dashboard.ngrok.com/endpoints?sortBy=createdAt&orderBy=desc to obtain it.
-- Ngrok Token: You can use the token from Bot Users, if not u can obtain it directly from  https://dashboard.ngrok.com/authtokens
-- Ngrok ReserveTcpAdress: Optional, leave empty, unless you are using paid subscription.
+- Ngrok Authtoken: You can use the token from Bot Users https://dashboard.ngrok.com/bot-users, if not u can obtain it directly from  https://dashboard.ngrok.com/authtokens
+- Ngrok TcpAdress: Optional, leave empty, unless you are using paid subscription. https://dashboard.ngrok.com/tcp-addresses
 ```
 sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
 ```
