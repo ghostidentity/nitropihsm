@@ -2,8 +2,8 @@
     <LibraryPath>/usr/lib/arm-linux-gnueabihf/opensc-pkcs11.so</LibraryPath>
 	<Ngrok>
 		<Enable>false</Enable>
-		<Authtoken>invalid_token</Authtoken>
-		<ReserveTcpAdress>1.tcp.ngrok.io:27230</ReserveTcpAdress>
+		<Authtoken>2rcymVuT31F5iJIurEpLQjpQKKU_4ybtK1NwtYnqacJBvCoGM</Authtoken>
+		<TcpAdress>1.tcp.ngrok.io:27230</TcpAdress>
 	</Ngrok>
 	<Users>
 		<User>
