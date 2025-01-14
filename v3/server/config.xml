@@ -1,18 +1,20 @@
-                                    config.xml
-<Configuration>
+<Config>
     <LibraryPath>/usr/lib/arm-linux-gnueabihf/opensc-pkcs11.so</LibraryPath>
-    <EnableNgrok>false</EnableNgrok>
-    <Token>N/A</Token>
-    <Users>
-        <User>
-            <Username>zerocore</Username>
-            <Password>$2a$10$P75mXSAfxVYmwZ7CWioBxO6XKM4TOgBoc3ceGHKVzAdZaCtOQLV.G</Password>
-            <Pin>654321098765</Pin>
-            <Type>RSA</Type>
-            <Length>2048</Length>
+	<Ngrok>
+		<Enable>false</Enable>
+		<Authtoken>invalid_token</Authtoken>
+		<ReserveTcpAdress>1.tcp.ngrok.io:27230</ReserveTcpAdress>
+	</Ngrok>
+	<Users>
+		<User>
+			<Username>zerocore</Username>
+			<Password>invalid_password</Password>
+			<Pin>654321098765</Pin>
+			<Type>RSA</Type>
+			<Length>2048</Length>
             <Public>keys/public_key.pem</Public>
-            <KeyID>01</KeyID>
-            <SlotNumber>0</SlotNumber>
-        </User>
-    </Users>
-</Configuration>
+			<KeyID>01</KeyID>
+			<SlotNumber>0</SlotNumber>
+		</User>
+	</Users>
+</Config>
