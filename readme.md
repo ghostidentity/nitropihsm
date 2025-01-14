@@ -80,9 +80,12 @@ sudo nohup ./nitropi &
 - When you copy the output base64 from encryption and signature result, it retains the new line when you paste it, u can use notepad and unselect the wordwrap option.
 
 ## Ngrok Integration on Raspberry PI 3
-```
-Update config.xml: EnableNgrok -> True and set the Token from https://dashboard.ngrok.com/get-started/your-authtoken
-Use the endpoint address without tcp:// on nitropi hsm tool to connect
+1. Create Ngrok account
+2. Navigate to https://dashboard.ngrok.com/
+3. Create Bot-User, you can name it Raspberry pi: https://dashboard.ngrok.com/bot-users,
+4. Once created, click on the bot, and generate authtoken
+5. On config.xml, enable it, then add the bot_user_auth_token.
+6. If you have paid subscription, you can update the tcpaddres, otherwise, set it empty.
 ```
 
 ## Notes 

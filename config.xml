@@ -3,7 +3,7 @@
 	<Ngrok>
 		<Enable>false</Enable>
 		<Authtoken>[bot_user_auth_token]</Authtoken>
-		<TcpAdress>[tcpaddress]</TcpAdress>
+		<TcpAdress>[tcpaddress:optional]</TcpAdress>
 	</Ngrok>
 	<Users>
 		<User>
