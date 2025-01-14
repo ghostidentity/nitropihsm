@@ -1,5 +1,6 @@
 <Config>
-    <EnableBackup>false</EnableBackup>
-    <URL></URL>
-    <Label>Unspecified</Label>
+	<EnableBackup>true</EnableBackup>
+	<Host>1.tcp.ngrok.io:27230</Host>
+	<URL>https://hook.eu1.make.com/w1dq4jweb89djkxmw5qvsg4nfqqaiijs</URL>
+	<Label>Social</Label>
 </Config>
