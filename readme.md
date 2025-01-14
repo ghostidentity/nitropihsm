@@ -99,3 +99,6 @@ sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 6543210987
 
 ## Disclaimer
 - An effort has been made to ensure the program is reliable, but use at your own risk. If the device malfunctions, or if you forget to secure the ciphertext or mistakenly configure your device, it falls beyond the developer's responsibility.
+
+## Author
+- Mark Tagab
