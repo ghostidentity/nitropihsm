@@ -1,7 +1,7 @@
 # NitroKey HSM 2 Integration with Raspberry Pi
 This guide demonstrates how to leverage the advanced features of the NitroKey HSM 2 to protect sensitive data on a Raspberry Pi device.
 
-## Support Functions
+## Supported Functions
 - Encrypt
 - Decrypt
 - Sign
