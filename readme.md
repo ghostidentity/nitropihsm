@@ -69,10 +69,6 @@ chmod +x nitropi
 sudo nohup ./nitropi &
 ```
 
-## Folder Structure
-- v1: Web-Based API call
-- v3: Post Quantum Cryptography Implementation
-
 ## Changes
 - 1/11/2025 now supports Sign and Verify, it uses RSA private key to sign the file. Likewise, you can use Verify to verify the signature.
 - 1/11/2025 fix bug on client side and optimization
