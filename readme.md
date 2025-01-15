@@ -60,9 +60,8 @@ pkcs15-tool --read-public-key "02" --reader 0 --pin 654321098765 --output public
 
 Note: The above code generates an RSA key pair. Ensure that the correct Key ID and Slot Number are used in config.xml. Also, move the generated public_key.pem file to the keys folder. Each user will use spefic public key for encryption.
 
-
+## Step 4: Update the config.xml
 ## Step 5: Run the program
-Once the key pair is generated and the configuration is set, run the program. The first time you run it, you will need to generate a hashed password for each user. This can be done via the /hasher endpoint on the server.
 
 ```
 chmod +x nitropi
