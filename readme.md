@@ -86,7 +86,7 @@ sudo nohup ./nitropi &
 4. Once created, click on the bot, and generate authtoken
 5. On config.xml, enable it, then add the bot_user_auth_token.
 6. If you have paid subscription, you can update the tcpaddres, otherwise, set it empty.
-```
+
 
 ## Notes 
 - The server executable expects the client.xml file to be in the same folder. It also expects the public_keys to be present as defined in client.xml. Make sure to use the appropriate executable based on your OS and the correct OpenSC library.
@@ -96,9 +96,15 @@ sudo nohup ./nitropi &
 - When running the server on background and with ngrok option enabled, the server endpoint will not be visible, navigate to https://dashboard.ngrok.com/endpoints?sortBy=createdAt&orderBy=desc to obtain it.
 - Ngrok Authtoken: You can use the token from Bot Users https://dashboard.ngrok.com/bot-users, if not u can obtain it directly from  https://dashboard.ngrok.com/authtokens
 - Ngrok TcpAdress: Optional, leave empty, unless you are using paid subscription. https://dashboard.ngrok.com/tcp-addresses
+
 ```
 sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
 ```
+
+# Virus Check
+
+1. client: https://www.virustotal.com/gui/file/b1a10d4c81a64079769148622d4badb12eb9a2df37f62ec54c16884490771c53/detection
+2. server: https://www.virustotal.com/gui/file/4fb6080cb9a61ef0d3b2a999d7ce8ca066a02782d00f8f2c86dd41f55d1bf822/detection
 
 ## Disclaimer
 - An effort has been made to ensure the program is reliable, but use at your own risk. If the device malfunctions, or if you forget to secure the ciphertext or mistakenly configure your device, it falls beyond the developer's responsibility.
