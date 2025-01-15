@@ -87,7 +87,6 @@ sudo nohup ./nitropi &
 5. On config.xml, enable it, then add the bot_user_auth_token.
 6. If you have paid subscription, you can update the tcpaddres, otherwise, set it empty.
 
-
 ## Notes 
 - The server executable expects the client.xml file to be in the same folder. It also expects the public_keys to be present as defined in client.xml. Make sure to use the appropriate executable based on your OS and the correct OpenSC library.
 - Do not use public_key.pem for encryption. You must generate a new RSA key pair and download the public key from it.
@@ -96,10 +95,6 @@ sudo nohup ./nitropi &
 - When running the server on background and with ngrok option enabled, the server endpoint will not be visible, navigate to https://dashboard.ngrok.com/endpoints?sortBy=createdAt&orderBy=desc to obtain it.
 - Ngrok Authtoken: You can use the token from Bot Users https://dashboard.ngrok.com/bot-users, if not u can obtain it directly from  https://dashboard.ngrok.com/authtokens
 - Ngrok TcpAdress: Optional, leave empty, unless you are using paid subscription. https://dashboard.ngrok.com/tcp-addresses
-
-```
-sc-hsm-tool --initialize --reader "0" --so-pin 1234567890123456 --pin 654321098765
-```
 
 # Virus Check
 
