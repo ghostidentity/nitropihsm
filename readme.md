@@ -7,6 +7,9 @@ This guide demonstrates how to leverage the advanced features of the NitroKey HS
 - Sign
 - Verify
 
+## Demo
+https://youtu.be/-arNdg_cp_k
+
 # Prerequisites
 
 ## Hardware Requirements:
